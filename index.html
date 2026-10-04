@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Secure Document Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Login -->
+
+    <section id="loginPage" class="login-page">
+
+        <div class="login-container">
+
+            <div class="company-logo">SD</div>
+
+            <h1>Secure Document Portal</h1>
+
+            <p class="login-subtitle">
+                Internal document management and search system
+            </p>
+
+            <form id="loginForm">
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email address"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="primary-button">
+                    Sign In
+                </button>
+
+            </form>
+
+            <p class="security-note">
+                Authorized users only
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Dashboard -->
+
+    <section id="dashboardPage" class="dashboard hidden">
+
+        <!-- Sidebar -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-logo">SD</div>
+
+                <div>
+                    <h2>SecureDocs</h2>
+                    <span>Document Portal</span>
+                </div>
+            </div>
+
+            <nav>
+
+                <button class="nav-item active">
+                    Dashboard
+                </button>
+
+                <button class="nav-item">
+                    Documents
+                </button>
+
+                <button class="nav-item">
+                    AI Search
+                </button>
+
+                <button class="nav-item">
+                    Settings
+                </button>
+
+            </nav>
+
+            <button id="logoutBtn" class="logout-button">
+                Sign Out
+            </button>
+
+        </aside>
+
+
+        <!-- Main -->
+
+        <main class="main-content">
+
+            <header class="topbar">
+
+                <div>
+                    <h1>Dashboard</h1>
+
+                    <p>
+                        Manage and search your organization's documents.
+                    </p>
+                </div>
+
+                <div class="user-info">
+
+                    <span class="user-label">
+                        Signed in as
+                    </span>
+
+                    <strong id="userEmail">
+                        User
+                    </strong>
+
+                </div>
+
+            </header>
+
+
+            <!-- Statistics -->
+
+            <section class="statistics">
+
+                <div class="stat-card">
+
+                    <div>
+                        <p>Total Documents</p>
+                        <h2 id="documentCount">0</h2>
+                    </div>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div>
+                        <p>Search Queries</p>
+                        <h2>24</h2>
+                    </div>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div>
+                        <p>System Status</p>
+                        <h2 class="status">Active</h2>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Upload -->
+
+            <section class="content-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Upload Document</h2>
+
+                        <p>
+                            Upload a document to your secure workspace.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="upload-area">
+
+                    <div class="upload-symbol">
+                        +
+                    </div>
+
+                    <h3>Select a document</h3>
+
+                    <p>
+                        Supported formats: PDF, DOCX and TXT
+                    </p>
+
+                    <input
+                        type="file"
+                        id="fileInput"
+                        accept=".pdf,.docx,.txt"
+                        hidden
+                    >
+
+                    <label
+                        for="fileInput"
+                        class="secondary-button"
+                    >
+                        Choose File
+                    </label>
+
+                    <p
+                        id="selectedFile"
+                        class="selected-file"
+                    >
+                        No file selected
+                    </p>
+
+                    <button
+                        id="uploadBtn"
+                        class="primary-button upload-button"
+                    >
+                        Upload Document
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- Documents -->
+
+            <section class="content-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Documents</h2>
+
+                        <p>
+                            Documents available in your workspace.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div id="documentList" class="document-list">
+
+                    <div class="empty-state">
+                        No documents uploaded yet.
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- AI Search -->
+
+            <section class="content-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Document Search</h2>
+
+                        <p>
+                            Ask a question about your uploaded documents.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div id="chatBox" class="chat-box">
+
+                    <div class="message assistant-message">
+
+                        <div class="message-label">
+                            Assistant
+                        </div>
+
+                        <p>
+                            Ask a question about your documents.
+                            The search results will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="search-area">
+
+                    <input
+                        type="text"
+                        id="questionInput"
+                        placeholder="Enter your question..."
+                    >
+
+                    <button
+                        id="askBtn"
+                        class="primary-button search-button"
+                    >
+                        Search
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
